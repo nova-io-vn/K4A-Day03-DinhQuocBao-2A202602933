@@ -93,7 +93,7 @@ gốc lưu đầy đủ query, arguments, Observation, độ trễ LLM/MCP, prov
 - [x] Tổng độ trễ ghi nhận trong lần chạy nghiệm thu: **16,089.37 ms**.
 - [x] TC05 xử lý `NOT_FOUND` đúng và không bịa lộ trình E99.
 - [x] Câu trả lời đăng ký chỉ hiển thị số điện thoại đã che.
-- [ ] Commit và Push lên GitHub cá nhân (thực hiện sau khi rà soát bài nộp).
+- [x] Commit và Push lên GitHub cá nhân (thực hiện sau khi rà soát bài nộp).
 
 Lệnh nghiệm thu:
 
