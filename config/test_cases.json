@@ -1,0 +1,42 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "VinBus sử dụng loại phương tiện nào và trợ lý này có thể hỗ trợ tôi những việc gì?",
+    "expected_behavior": "Agent trả lời trực tiếp về phạm vi hỗ trợ, không gọi Tool và không khẳng định dữ liệu vận hành thời gian thực.",
+    "expected_tools": [],
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu thông tin lộ trình của tuyến VinBus E01.",
+    "expected_behavior": "Agent gọi lookup_bus_route với route_code E01 rồi tổng hợp đúng Observation.",
+    "expected_tools": ["lookup_bus_route"],
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "monthly_pass_registration",
+    "question": "Đăng ký vé tháng tuyến E03 cho khách hàng Trần Minh Anh, số điện thoại 0912345678, bắt đầu từ ngày 2026-10-01.",
+    "expected_behavior": "Agent gọi register_monthly_pass một lần với đủ bốn trường và trả mã đăng ký mô phỏng.",
+    "expected_tools": ["register_monthly_pass"],
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Trước tiên hãy kiểm tra tuyến E05 có tồn tại. Nếu có, đăng ký vé tháng tuyến đó cho Đinh Quốc Bảo, số 0987654321, bắt đầu từ 2026-10-15.",
+    "expected_behavior": "Agent thực hiện đúng chuỗi ReAct: lookup_bus_route trước, sau Observation thành công mới gọi register_monthly_pass.",
+    "expected_tools": ["lookup_bus_route", "register_monthly_pass"],
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy tra cứu tuyến VinBus E99 và cho tôi biết lộ trình chi tiết.",
+    "expected_behavior": "Agent gọi lookup_bus_route, nhận NOT_FOUND và phản hồi lịch sự, không bịa lộ trình.",
+    "expected_tools": ["lookup_bus_route"],
+    "complexity": "Medium"
+  }
+]

@@ -6,9 +6,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Environment Variables & Keys
 .env
-
 # System & IDE files
 .DS_Store
 Thumbs.db

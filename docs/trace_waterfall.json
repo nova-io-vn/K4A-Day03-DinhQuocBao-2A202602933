@@ -1,29 +1,42 @@
 [
   {
     "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
-    "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
-  },
-  {
-    "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu tuyến VinBus E99 và cho tôi biết lộ trình chi tiết.",
     "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
+    "thought": "OpenAI chọn công cụ lookup_bus_route.",
+    "tool_name": "lookup_bus_route",
     "arguments": {
-      "student_id": "SV2026001"
+      "route_code": "E99"
     },
-    "observation": {},
-    "latency_ms": 799.12
+    "observation": {
+      "status": "NOT_FOUND",
+      "route_code": "E99",
+      "message": "Không tìm thấy tuyến có mã 'E99' trong dữ liệu mô phỏng.",
+      "available_route_codes": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "data_source": "Dữ liệu mô phỏng phục vụ Lab 3"
+    },
+    "llm_latency_ms": 1292.51,
+    "mcp_latency_ms": 0.05,
+    "latency_ms": 1292.56,
+    "jsonrpc": "2.0",
+    "mcp_server": "vinbus-customer-service-mcp-server",
+    "provider": "OpenAIProvider",
+    "model": "gpt-4o-mini",
+    "live_api": true
   },
   {
     "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
+    "query": "Hãy tra cứu tuyến VinBus E99 và cho tôi biết lộ trình chi tiết.",
     "action_type": "FINAL_ANSWER",
-    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
-    "latency_ms": 10.0
+    "thought": "OpenAI đã đủ dữ liệu để trả lời trực tiếp.",
+    "output": "Tuyến VinBus E99 không tồn tại trong dữ liệu mô phỏng. Các mã tuyến có sẵn là E01, E03 và E05. Nếu bạn cần thông tin về một trong các tuyến này, hãy cho tôi biết! Kết quả này chỉ là mô phỏng Lab 3.",
+    "latency_ms": 1664.49,
+    "provider": "OpenAIProvider",
+    "model": "gpt-4o-mini",
+    "live_api": true
   }
 ]
